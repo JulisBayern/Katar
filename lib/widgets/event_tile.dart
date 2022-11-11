@@ -3,6 +3,8 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:katar/main.dart';
+import 'package:katar/markdown.dart';
 import 'package:katar/models.dart';
 import 'package:katar/widgets/competitor.dart';
 
@@ -89,9 +91,12 @@ class _EventTileState extends State<EventTile>
                             padding: EdgeInsets.only(top: 4),
                             child: MouseRegion(
                                 cursor: SystemMouseCursors.click,
-                                child: Text(
-                                  "Erklärung",
-                                  style: tt.titleSmall!.copyWith(decoration: TextDecoration.underline),
+                                child: GestureDetector(
+                                  onTap: () => showMarkdown(context, explainMap[widget.event.explainId!]!, "Erklärung"),
+                                  child: Text(
+                                    "Erklärung",
+                                    style: tt.titleSmall!.copyWith(decoration: TextDecoration.underline),
+                                  ),
                                 ))
                           )
                       ],
@@ -107,7 +112,7 @@ class _EventTileState extends State<EventTile>
                       ))
                 ],
               ),
-              Divider()
+              Container(width: double.infinity, margin: EdgeInsets.only(top: 4), height: 1, color: Colors.black12)
             ],
           )),
         ],

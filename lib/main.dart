@@ -57,6 +57,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+bool isDesktop = false;
+
 class SoccerView extends StatelessWidget {
   const SoccerView({
     Key? key,
@@ -65,6 +67,8 @@ class SoccerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var tt = Theme.of(context).textTheme;
+    var mq = MediaQuery.of(context);
+    isDesktop = mq.size.width > mq.size.height;
     return Scaffold(
         body: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +83,7 @@ class SoccerView extends StatelessWidget {
                   child: Row(
                     children: [
                       Text("SPIELVERLAUF", style: tt.titleSmall!.copyWith(fontWeight: FontWeight.bold),),
-                      Image.network("https://upload.wikimedia.org/wikipedia/commons/4/41/Red_circle.gif", width: 24, height: 24,),
+                      Image.asset("assets/live.gif", width: 24, height: 24,),
                       Spacer(),
                       Text("SCORE / ZEIT", style: tt.titleSmall!.copyWith(fontWeight: FontWeight.bold),),
                     ],

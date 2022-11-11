@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:katar/blocs/event.dart';
@@ -15,7 +17,7 @@ class Header extends StatelessWidget {
     var tt = Theme.of(context).textTheme;
     var mq = MediaQuery.of(context);
     var width = mq.size.width;
-    var flagWidth = width / 4;
+    var flagWidth = min(width / 4, 200.0);
     return Column(
       children: [
         Container(
@@ -37,9 +39,7 @@ class Header extends StatelessWidget {
   Positioned _buildBackground() {
     return Positioned.fill(
         child: OctoImage(
-      image: const NetworkImage(
-        "https://images.unsplash.com/photo-1459865264687-595d652de67e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      ),
+      image: const AssetImage("assets/background.jpg",),
       fit: BoxFit.fitWidth,
       placeholderBuilder: OctoPlaceholder.blurHash(
         "qBGS^x%g03R\$ICogRRof^=4mM}t9ait7WBof8_t8?doeR%WAWBj[oyxxM_D#ogogofaxD*W=M^t8%5Ria}WBbFt8jYxwR%NEt8ay",
@@ -57,8 +57,8 @@ class Header extends StatelessWidget {
               top: 0,
               bottom: 0,
               child: GestureDetector(
-                  child: Image.network(
-                "https://i.imgur.com/nxUuhht.png",
+                  child: Image.asset(
+                "assets/julis-logo.png",
                 width: 24,
                 height: 24,
               ), onTap: () => launchUrlString("https://julis-bayern.de"),)),

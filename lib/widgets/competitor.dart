@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:katar/main.dart';
 
 class Competitor extends StatelessWidget {
 
@@ -7,15 +10,15 @@ class Competitor extends StatelessWidget {
   final ImageProvider url;
   final String name;
 
-  static ImageProvider qatar = const NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFyVfHm-L3Muxn4dzFPLqBvpRIGU2eVotBlg&usqp=CAU");
-  static ImageProvider un = const NetworkImage("https://upload.wikimedia.org/wikipedia/commons/1/11/Flag_of_the_United_Nations.png");
+  static ImageProvider qatar = const AssetImage("assets/qatar.jpg");
+  static ImageProvider un = const AssetImage("assets/un.png");
 
   @override
   Widget build(BuildContext context) {
     var tt = Theme.of(context).textTheme;
     var mq = MediaQuery.of(context);
     var width = mq.size.width;
-    var flagWidth = width / 4;
+    var flagWidth = min(width / 4, 200.0);
     var flagHeight = (flagWidth / 3) * 2;
     return SizedBox(
       width: flagWidth,
@@ -27,7 +30,7 @@ class Competitor extends StatelessWidget {
             boxShadow: [BoxShadow(blurRadius: 10, offset: Offset(1,1), color: Colors.black54)]
           ),),
           SizedBox(height: 4,),
-          Text(name, style: tt.titleSmall!.copyWith(color: Colors.white, fontSize: 10), textAlign: TextAlign.center, maxLines: 1, overflow: TextOverflow.fade,)
+          Text(name, style: tt.titleSmall!.copyWith(color: Colors.white, fontSize: isDesktop ? 16 : 10), textAlign: TextAlign.center, maxLines: 1, overflow: TextOverflow.fade,)
         ],
       ),
     );

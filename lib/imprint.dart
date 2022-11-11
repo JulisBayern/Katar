@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:katar/markdown.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Imprint extends StatelessWidget {
   const Imprint({Key? key}) : super(key: key);
@@ -15,9 +16,16 @@ class Imprint extends StatelessWidget {
           children: [
             const MarkdownBody(data: impressum, shrinkWrap: true,),
             SizedBox(height: 16,),
-            ElevatedButton(onPressed: () {
-              showLicensePage(context: context);
-            }, child: Text("Lizenzen"))
+            ButtonBar(
+              children: [
+                ElevatedButton(onPressed: () {
+                  launchUrlString("https://www.julis-bayern.de/datenschutz/");
+                }, child: Text("Datenschutz")),
+                ElevatedButton(onPressed: () {
+                  showLicensePage(context: context);
+                }, child: Text("Lizenzen"))
+              ],
+            )
           ],
         ),
       ),
