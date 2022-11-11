@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "build/web",
+    "target": "julis-katar-staging",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

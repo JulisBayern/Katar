@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "helightdev-fe5b4"
+  },
+  "targets": {
+    "helightdev-fe5b4": {
+      "hosting": {
+        "julis-katar-staging": [
+          "julis-katar-staging"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
