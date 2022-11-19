@@ -60,7 +60,7 @@ class GeneratorPool {
     while (time < 90) {
       var gen = getGenerator(random);
       var readLen = 0;
-      yield* gen.source().mapAsync((event) async {
+      yield* gen.source().asyncMap((event) async {
         await Future.delayed(Duration(milliseconds: readLen));
         time += random.nextInt(9) + 1;
         readLen = getDurationForTextLength(event.title + (event.description??""));
@@ -74,15 +74,5 @@ class GeneratorPool {
 
 }
 
-extension on Stream<TickerEvent> {
-  Stream<T> mapAsync<T>(Future<T> Function(TickerEvent) fun) async* {
-    var events = await toList();
-    for (var event in events) {
-      var result = await fun(event);
-      yield result;
-    }
-  }
-
-}
 /// Gets the recommended visibility time for a popup with the text [text] in ms.
 int getDurationForTextLength(String text) => max(100 + ((text.length / 42) * 1000).toInt(), 750);

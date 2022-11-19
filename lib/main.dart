@@ -40,7 +40,6 @@ void showMarkdown(BuildContext context, String content, String title) {
 class KatarApp extends StatelessWidget {
   const KatarApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

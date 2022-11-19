@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:katar/markdown.dart';
+import 'package:katar/constants.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class Imprint extends StatelessWidget {

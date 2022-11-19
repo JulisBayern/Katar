@@ -4,7 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:katar/main.dart';
-import 'package:katar/markdown.dart';
+import 'package:katar/constants.dart';
 import 'package:katar/models.dart';
 import 'package:katar/widgets/competitor.dart';
 

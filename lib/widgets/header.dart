@@ -74,7 +74,7 @@ class Header extends StatelessWidget {
               bottom: 0,
               child: GestureDetector(
                 onTap: () async {
-                  await Share.share("https://katarvsmenschenrechte.de/", subject: "#boycottqatar2022 #julis");
+                  await Share.share("""https://katarvsmenschenrechte.de #boycottqatar2022 #julis""", subject: "#boycottqatar2022 #julis");
                 },
                 child: const Icon(Icons.share, color: Colors.white),
               ))

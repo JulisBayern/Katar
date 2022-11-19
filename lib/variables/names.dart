@@ -13,7 +13,7 @@ List<String> indianFirstnames = ["Ishaan", "Jai", "Amar", "Navi", "Dhruv", "Kana
 List<String> indianSurnames = ["Devi", "Singh", "Kumar", "Das", "Kaur", "Ram", "Yadav", "Kumari", "Lal", "Bai",
   "Khatun", "Mandal", "Ali", "Sharma", "Ray", "Mondal", "Khan", "Sah", "Patel", "Prasad", "Patil", "Ghosh", "Pal",
   "Sahu", "Gupta", "Shaikh", "Bibi", "Sekh", "Begam", "Biswas", "Sarkar", "Paramar", "Khatoon", "Mahto", "Ansari",
-  "Nayak", "Ma", "Rathod", "Jadhav", "Mahato", "Rani", "Barman", "Behera", "Mishra", "Chand", "Roy",];
+  "Nayak", "Ma", "Rathod", "Jadhav", "Mahato", "Rani", "Barman", "Behera", "Mishra", "Chand", "Roy"];
 
 String getNepalName() {
   var random = Random();
