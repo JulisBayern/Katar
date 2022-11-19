@@ -30,7 +30,7 @@ class Competitor extends StatelessWidget {
             boxShadow: [BoxShadow(blurRadius: 10, offset: Offset(1,1), color: Colors.black54)]
           ),),
           SizedBox(height: 4,),
-          Text(name, style: tt.titleSmall!.copyWith(color: Colors.white, fontSize: isDesktop ? 16 : 10), textAlign: TextAlign.center, maxLines: 1, overflow: TextOverflow.fade,)
+          Text(name, style: tt.titleSmall!.copyWith(color: Colors.white, fontSize: isDesktop ? 16 : 10, fontWeight: FontWeight.w700), textAlign: TextAlign.center, maxLines: 1, overflow: TextOverflow.fade,)
         ],
       ),
     );

@@ -14,7 +14,10 @@ class Imprint extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            const MarkdownBody(data: impressum, shrinkWrap: true,),
+            MarkdownBody(data: impressum, onTapLink: (text, href, title) {
+              var url = href ?? "";
+              launchUrlString(url);
+            }, shrinkWrap: true,),
             SizedBox(height: 16,),
             ButtonBar(
               children: [

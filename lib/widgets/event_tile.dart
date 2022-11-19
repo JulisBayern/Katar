@@ -24,13 +24,22 @@ class _EventTileState extends State<EventTile>
 
   late Animation<double> imageFadeIn;
   late Animation<double> imageBounce;
+  late Animation<double> fade1;
+  late Animation<double> fade2;
 
   @override
   void initState() {
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
-    imageFadeIn = _controller.drive(Tween(begin: 0, end: 3));
-    imageBounce = _controller.drive(CurveTween(curve: Curves.easeInCubic));
+        vsync: this, duration: const Duration(milliseconds: 750));
+    imageFadeIn = Tween<double>(begin: 0, end: 1)
+        .animate(CurvedAnimation(parent: _controller, curve: Interval(0.12, 0.33)));
+    imageBounce = Tween<double>(begin: 0, end: 1)
+        .animate(CurvedAnimation(parent: _controller, curve: Interval(0, 0.33)));
+    fade1 = Tween<double>(begin: 0, end: 1)
+        .animate(CurvedAnimation(parent: _controller, curve: Interval(0.0,0.50)));
+    fade2 = Tween<double>(begin: 0, end: 1)
+        .animate(CurvedAnimation(parent: _controller, curve: Interval(0.5,1)));
+
     if (widget.isAnimated) {
       _controller.forward(from: 0);
     } else {
@@ -49,6 +58,7 @@ class _EventTileState extends State<EventTile>
   @override
   Widget build(BuildContext context) {
     var tt = Theme.of(context).textTheme;
+    var mq = MediaQuery.of(context);
     return Padding(
       padding: EdgeInsets.only(bottom: 8),
       child: Row(
@@ -60,7 +70,7 @@ class _EventTileState extends State<EventTile>
                   child: Icon(widget.event.type.icon,
                       size: 32,
                       color: widget.event.type.iconColor
-                          .withOpacity(max(0, imageFadeIn.value - 2))))),
+                          .withOpacity(imageFadeIn.value)))),
           Container(
             width: 8,
           ),
@@ -79,12 +89,12 @@ class _EventTileState extends State<EventTile>
                       children: [
                         Text(
                           widget.event.title,
-                          style: tt.titleSmall,
+                          style: tt.titleSmall!.copyWith(color: tt.titleSmall!.color!.withOpacity(fade1.value), fontWeight: FontWeight.w600),
                         ),
                         if (widget.event.description != null)
                           Text(
                             widget.event.description!,
-                            style: tt.bodySmall,
+                            style: tt.bodySmall!.copyWith(color: tt.bodySmall!.color!.withOpacity(fade2.value)),
                           ),
                         if (widget.event.explainId != null)
                           Padding(
@@ -95,7 +105,7 @@ class _EventTileState extends State<EventTile>
                                   onTap: () => showMarkdown(context, explainMap[widget.event.explainId!]!, "Erklärung"),
                                   child: Text(
                                     "Erklärung",
-                                    style: tt.titleSmall!.copyWith(decoration: TextDecoration.underline),
+                                    style: tt.bodySmall!.copyWith(decoration: TextDecoration.underline, color: tt.bodySmall!.color!.withOpacity(fade2.value)),
                                   ),
                                 ))
                           )
@@ -112,7 +122,7 @@ class _EventTileState extends State<EventTile>
                       ))
                 ],
               ),
-              Container(width: double.infinity, margin: EdgeInsets.only(top: 4), height: 1, color: Colors.black12)
+              Container(width: mq.size.width * fade2.value, margin: EdgeInsets.only(top: 8), height: 1, color: Colors.black12)
             ],
           )),
         ],

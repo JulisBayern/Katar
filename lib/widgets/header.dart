@@ -49,7 +49,7 @@ class Header extends StatelessWidget {
 
   Container _buildHeaderBar(TextTheme tt) => Container(
       height: 42,
-      color: Colors.pink.withOpacity(.88),
+      margin: EdgeInsets.only(top: 8),
       child: Stack(
         children: [
           Positioned(
@@ -65,7 +65,7 @@ class Header extends StatelessWidget {
           Center(
               child: Text(
             "WM 2022 KATAR",
-            style: tt.headlineSmall!.copyWith(color: Colors.white),
+            style: tt.headlineSmall!.copyWith(color: Colors.white, shadows: [const Shadow(blurRadius: 4, color: Colors.black87)]),
             textAlign: TextAlign.center,
           )),
           Positioned(
@@ -74,13 +74,9 @@ class Header extends StatelessWidget {
               bottom: 0,
               child: GestureDetector(
                 onTap: () async {
-                  await Share.share("https://boycott.de",
-                      subject: "#boycottqatar2022");
+                  await Share.share("https://katarvsmenschenrechte.de/", subject: "#boycottqatar2022 #julis");
                 },
-                child: Icon(
-                  Icons.share,
-                  color: Colors.white,
-                ),
+                child: const Icon(Icons.share, color: Colors.white),
               ))
         ],
       ));
@@ -97,12 +93,12 @@ class Header extends StatelessWidget {
         children: [
           Competitor(name: "Katar", url: Competitor.qatar),
           SizedBox(
-            width: 64,
+            width: 96,
             child: BlocBuilder<EventCubit, List<TickerEvent>>(
               builder: (context, state) {
                 return Text(
                   "${state.goalsA}:${state.goalsB}",
-                  style: tt.headlineLarge!.copyWith(color: Colors.white),
+                  style: tt.headlineLarge!.copyWith(color: Colors.white, shadows: [const Shadow(blurRadius: 4, color: Colors.black87)]),
                   textAlign: TextAlign.center,
                 );
               },

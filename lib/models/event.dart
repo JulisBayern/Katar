@@ -4,7 +4,7 @@ import 'package:katar/models.dart';
 
 class TickerEvent {
 
-  TickerEventType type;
+  TEType type;
   String title;
   int time;
   String? description;
@@ -71,7 +71,7 @@ class TickerEvent {
   }
 
   TickerEvent copyWith({
-    TickerEventType? type,
+    TEType? type,
     String? title,
     int? time,
     String? description,
@@ -110,7 +110,7 @@ class TickerEvent {
 
   factory TickerEvent.fromMap(Map<String, dynamic> map) {
     return TickerEvent(
-      type: map['type'] as TickerEventType,
+      type: map['type'] as TEType,
       title: map['title'] as String,
       time: map['time'] as int,
       description: map['description'] as String,
@@ -125,7 +125,7 @@ class TickerEvent {
 //</editor-fold>
 }
 
-enum TickerEventType {
+enum TEType {
   kickoff,
   end,
   goal,
@@ -135,31 +135,31 @@ enum TickerEventType {
   event,
 }
 
-extension TypeExtensions on TickerEventType {
+extension TypeExtensions on TEType {
   IconData get icon {
     switch(this) {
-      case TickerEventType.kickoff:
+      case TEType.kickoff:
         return Icons.sports_sharp;
-      case TickerEventType.end:
+      case TEType.end:
         return Icons.sports_score;
-      case TickerEventType.goal:
+      case TEType.goal:
         return Icons.sports_soccer;
-      case TickerEventType.yellowCard:
+      case TEType.yellowCard:
         return Icons.sim_card_alert;
-      case TickerEventType.redCard:
+      case TEType.redCard:
         return Icons.sim_card_alert;
-      case TickerEventType.gameEvent:
+      case TEType.gameEvent:
         return Icons.accessibility;
-      case TickerEventType.event:
+      case TEType.event:
         return Icons.info;
     }
   }
 
   Color get iconColor {
     switch(this) {
-      case TickerEventType.yellowCard:
+      case TEType.yellowCard:
         return Colors.yellow;
-      case TickerEventType.redCard:
+      case TEType.redCard:
         return Colors.red;
       default: return Color(0xFF3D3D3D);
     }
