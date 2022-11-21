@@ -1,18 +1,8 @@
 ![Jung & Liberal](https://img.shields.io/badge/Jung-Liberal-%23e5007d)
+![Time to Ship](https://img.shields.io/badge/time--to--ship-1%20week-orange)
 
-# katar
+# Katar Liveticker
+Um auf die Menschenrechtsverletzungen, schlechten Arbeitsbedingungen und Diskriminierung in Katar aufmerksam zu machen, habe wir diesen simultieren Liveticker als Portestaktion erstellt.
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Repostitory
+Die Repo beinhaltet den SourceCode unserer Flutter WebApp.
